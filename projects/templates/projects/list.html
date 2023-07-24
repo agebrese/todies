@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <h1>My Projects</h1>
+
+
+            {% if project not in project_list %}
+            <p>You are not assigned to any projects </p>
+            {% endif %}
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number of tasks</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in project_list %}
+                    <tr>
+                        <td>{{ project.name }}</td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
