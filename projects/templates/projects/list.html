@@ -13,9 +13,12 @@
             <h1>My Projects</h1>
 
 
+            {% for project in project_list %}
             {% if project not in project_list %}
             <p>You are not assigned to any projects </p>
             {% endif %}
+            {% endfor %}
+
 
 
             <table>
