@@ -16,7 +16,7 @@
             {% if project.tasks.all|length == 0 %}
             <p>This project has no tasks</p>
             {% endif %}
-
+            <p><a href="{% url 'create_task' %}">Create a new task</a></p>
 
             {% if project.tasks.all|length > 0 %}
             <table>
