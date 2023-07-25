@@ -8,19 +8,39 @@
 </head>
 
 <body>
+    <header>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'show_my_tasks' %}">My tasks</a>
+                </li>
+                <li>
+                    <a href="{% url 'list_projects' %}">My projects</a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'login' %}">Login</a>
+                </li>
+                <li>
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
     <main>
         <div>
             <h1>My Projects</h1>
-
-
             {% for project in project_list %}
             {% if project not in project_list %}
             <p>You are not assigned to any projects </p>
             {% endif %}
             {% endfor %}
             <p><a href="{% url 'create_project' %}">Create a new project</a></p>
-
-
             <table>
                 <thead>
                     <tr>
@@ -38,7 +58,6 @@
 
                     {% endfor %}
                 </tbody>
-
             </table>
         </div>
     </main>
